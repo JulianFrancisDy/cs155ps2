@@ -21,20 +21,21 @@ void yyerror();
 "procedure"|"call"|"return"|"end" { ret_print("RESERVED_PROCEDURE"); }
 "and"|"or"|"not" { ret_print("LOGICAL_OPS"); }
 "ceil"|"floor"|"mod"|"log" { ret_print("MISC_MATH_OPS"); }
-[_a-z][_a-zA-Z0-9]* { ret_print("IDENTIFIERS"); }
-"<-" { ret_print("ASSIGNMENT"); }
+[_a-zA-Z][_a-zA-Z0-9]* { ret_print("IDENTIFIERS"); }
+"<-" | "=" { ret_print("ASSIGNMENT"); }
 "+"|"-"|"/"|"x"|"^" { ret_print("ARITHMETIC_OPS"); }
-"<"|"<="|"="|"!="|">"|">=" { ret_print("RELATIONAL_OPS"); }
+"<"|"<="|"!="|">"|">=" { ret_print("RELATIONAL_OPS"); }
 ":"|";"|"," { ret_print("DELIMITERS"); }
 "("|")" { ret_print("GROUPINGS"); }
 \'(\\.|[^\'])*\' { ret_print("STRINGS"); }
 [1-9][0-9]*|0 { ret_print("INT"); }
 [0-9]*\.?[0-9]+ { ret_print("FLOAT"); }
-\s|\t|\n { ret_print("WHITESPACE_CHAR"); }
+\s|\t { ret_print("WHITESPACE_CHAR"); }
+\n { lineno++; ret_print("WHITESPACE_CHAR"); }
 %%
 
 void ret_print(char *token_type) {
-    printf("yytext: %s\ttoken: %s\tlineno:%d\n", yytext, token_type, lineno);
+    printf("yytext: %s\ttoken: %s\tlineno:%d\n\n", yytext, token_type, lineno);
 }
 
 void yyerror(char *message){
