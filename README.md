@@ -16,3 +16,7 @@ The command `flex ps2.l` compiles the flex file, generating a lex.yy.c file.
 The command `gcc lex.yy.c -o ouput` compiles the lex file and generates an executable named output.
 
 To run:
+
+```bash
+./output
+```
