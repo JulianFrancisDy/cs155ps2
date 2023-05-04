@@ -44,7 +44,8 @@ void yyerror(char *message){
 }
 
 // Main function to start the lexical analysis
-int main() {
+int main(int argc, char *argv[]) {
+    yyin = fopen(argv[1], "r");
     yylex();
     fclose(yyin);
     return 0;
