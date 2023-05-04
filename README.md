@@ -25,9 +25,9 @@ To run:
 This implementation also supports opening of files as input for the analyzer. Simply run using the command:
 
 ```bash
-./output -<filename>
+./output <filename>
 ```
 
-Such as ```./output -helloworld.easy```
+Such as ```./output helloworld.easy```
 
 Write or paste the EASY program on the terminal as input for the lexical analyzer.
