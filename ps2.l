@@ -22,9 +22,10 @@ void yyerror();
 "and"|"or"|"not" { ret_print("LOGICAL_OPS"); }
 "ceil"|"floor"|"mod"|"log" { ret_print("MISC_MATH_OPS"); }
 [_a-zA-Z][_a-zA-Z0-9]* { ret_print("IDENTIFIERS"); }
-"<-" | "=" { ret_print("ASSIGNMENT"); }
 "+"|"-"|"/"|"x"|"^" { ret_print("ARITHMETIC_OPS"); }
-"<"|"<="|"!="|">"|">=" { ret_print("RELATIONAL_OPS"); }
+"<"|"<="|"=="|"!="|">"|">=" { ret_print("RELATIONAL_OPS"); }
+"<-"|"=" { ret_print("ASSIGNMENT"); }
+"["|"]" { ret_print("SCOPE"); }
 ":"|";"|"," { ret_print("DELIMITERS"); }
 "("|")" { ret_print("GROUPINGS"); }
 \'(\\.|[^\'])*\' { ret_print("STRINGS"); }
