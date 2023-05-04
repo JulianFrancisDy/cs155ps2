@@ -20,3 +20,5 @@ To run:
 ```bash
 ./output
 ```
+
+Write or paste the EASY program on the terminal as input for the lexical analyzer.
