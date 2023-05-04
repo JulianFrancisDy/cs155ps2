@@ -15,10 +15,19 @@ The command `flex ps2.l` compiles the flex file, generating a lex.yy.c file.
 
 The command `gcc lex.yy.c -o ouput` compiles the lex file and generates an executable named output.
 
+
 To run:
 
 ```bash
 ./output
 ```
+
+This implementation also supports opening of files as input for the analyzer. Simply run using the command:
+
+```bash
+./output -<filename>
+```
+
+Such as ```./output -helloworld.easy```
 
 Write or paste the EASY program on the terminal as input for the lexical analyzer.
